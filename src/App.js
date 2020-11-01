@@ -9,7 +9,7 @@ function App() {
   
 
   const renderPlayList = () => {
-    return src.map(item => <PlayListItem src={item} />)
+    return src.map( (item, index) => <PlayListItem key={index} src={item} />)
   }
 
   return (
