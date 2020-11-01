@@ -1,6 +1,6 @@
-import React, { useState, useEffect }from "react"
+import React, { useState, useEffect } from "react"
 
-const API_KEY = process.env.YOUTUBE_API_KEY;
+const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 // import moment from 'moment';
 
@@ -9,17 +9,17 @@ function PlayListItem({ src }) {
     // const now = moment().format("MM-DD-YYYY");
     // const publishedAt = moment(src.snippet.publishTime)
 
-    // useEffect( () => {
-    //     getVideoInfo() 
-    //     // eslint-disable-next-line
-    // }, [])
+    useEffect( () => {
+        getVideoInfo() 
+        // eslint-disable-next-line
+    }, [])
 
-    // const getVideoInfo = () => {
-    //     const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${src.id.videoId}&key=${API_KEY}`
-    //     fetch(url)
-    //       .then(response => response.json())
-    //       .then(getVideoStat)
-    // }
+    const getVideoInfo = () => {
+        const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${src.id.videoId}&key=${API_KEY}`
+        fetch(url)
+          .then(response => response.json())
+          .then(getVideoStat)
+    }
 
     const getVideoStat = (data) => {
         setVideoStat(data.items[0].statistics)
