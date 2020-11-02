@@ -1,9 +1,32 @@
 import React, { useState } from "react"
+import { Grid, FormControl, OutlinedInput, Button } from "@material-ui/core/"
+import { makeStyles } from "@material-ui/styles";
+import SearchIcon from '@material-ui/icons/Search';
 
 const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
+const useStyles = makeStyles(theme => ({
+    inputContainer: {
+        padding: theme.spacing(1.5, 0)
+    },
+    inputRoot: {
+        borderRadius: '2px 0 0 2px',
+        height: theme.spacing(4),
+    },
+    buttonRoot: {
+        borderRadius: '0 2px 2px 0',
+        height: theme.spacing(4),
+        boxShadow: 'none',
+        backgroundColor: theme.palette.grey[100],
+        borderLeft: 'none'
+    },
+    searchIcon: {
+        color: theme.palette.grey[600]
+    }
+}));
 
 function SearchBar({ setSrc }) {
+    const classes = useStyles();
     const [searchInput, setSearchInput] = useState('')
 
     const onChangeSearchInput = (e) => {
@@ -22,17 +45,35 @@ function SearchBar({ setSrc }) {
         setSrc(results)
     }
 
-    const onClickSearchButton = () => {
+    const onClickSearchButton = (e) => {
+        e.preventDefault();
         fetchSearchApi(searchInput);
     }
 
-
-
     return (
-        <>
-            <input type="text" placeholder="Search" onChange={onChangeSearchInput}></input>
-            <button onClick={onClickSearchButton}>Submit</button>
-        </>
+        <form>
+            <Grid container justify="center" className={classes.inputContainer}>  
+                <Grid item xs={6}>
+                    <OutlinedInput 
+                        classes={{ root: classes.inputRoot }}
+                        autoFocus 
+                        fullWidth
+                        size="small" 
+                        placeholder="Search"
+                        onChange={onChangeSearchInput} 
+                        />
+                </Grid>
+                <Grid item>
+                    <Button 
+                        classes={{ root: classes.buttonRoot }}
+                        type="submit" 
+                        onClick={onClickSearchButton} 
+                        variant="outlined">
+                        <SearchIcon fontSize="small" className={classes.searchIcon}/>
+                    </Button>
+                </Grid>
+            </Grid>
+        </form>
     )
 }
 
