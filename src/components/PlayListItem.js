@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react"
+import { Grid, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
-// import moment from 'moment';
+const useStyles = makeStyles(theme => ({
+    root: {
+        lineHeight: 1,
+        // color: theme.palette.primary.main
+    },
+}));
+
+
 
 function PlayListItem({ src }) {
+    const classes = useStyles();
     const [videoStat, setVideoStat] = useState(null)
-    // const now = moment().format("MM-DD-YYYY");
-    // const publishedAt = moment(src.snippet.publishTime)
 
     useEffect( () => {
         getVideoInfo() 
@@ -30,14 +38,18 @@ function PlayListItem({ src }) {
     }
 
     return (
-        <div>
-            <iframe title="sex" width="300" height="166" src={getYoutubeSrc()} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-            <p>{src.snippet.title}</p>
-            <p>{src.snippet.description}</p>
-            <img src={src.snippet.thumbnails.default.url} alt="faker-akali" />
-            <p>{videoStat?.viewCount}</p>
-            <p>{src.snippet.publishTime}</p>
-        </div>
+        <Grid item container justify="center" spacing={3}>
+            <Grid item>
+                <iframe title="sex" width="300" height="166" src={getYoutubeSrc()} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </Grid>
+
+            <Grid item xs={6}>
+                <Typography variant="subtitle1" className={classes.root}>{src.snippet.title}</Typography>
+                <Typography variant="subtitle2" gutterBottom color="textSecondary">{videoStat?.viewCount} views</Typography>
+                <Typography variant="body2" color="textSecondary">{src.snippet.description}</Typography>
+                <Typography variant="caption" color="textSecondary">{src.snippet.publishTime}</Typography>
+            </Grid>
+        </Grid>
     )
    
 }

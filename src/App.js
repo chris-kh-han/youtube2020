@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Grid, Paper } from '@material-ui/core';
+
 import SearchBar from './components/SearchBar'
 import PlayListItem from './components/PlayListItem'
 
@@ -13,11 +15,19 @@ function App() {
   }
 
   return (
-    <div>
-      <SearchBar setSrc={setSrc} />
-      {!!src.length && renderPlayList()}
-
-    </div>
+    
+      <Grid container justify="center" spacing={5}>
+        <Grid item xs={12}>
+          <Paper elevation={0}>
+            <SearchBar setSrc={setSrc} />
+          </Paper>
+        </Grid>
+        
+        <Grid item container>
+          {!!src.length && renderPlayList()}
+        </Grid>
+      </Grid>
+    
   );
 }
 
