@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/youtube2020/static/css/main.0888ce2d.chunk.css",
-    "main.js": "/youtube2020/static/js/main.4b5cbd65.chunk.js",
-    "main.js.map": "/youtube2020/static/js/main.4b5cbd65.chunk.js.map",
+    "main.js": "/youtube2020/static/js/main.e7bad031.chunk.js",
+    "main.js.map": "/youtube2020/static/js/main.e7bad031.chunk.js.map",
     "runtime-main.js": "/youtube2020/static/js/runtime-main.ce073186.js",
     "runtime-main.js.map": "/youtube2020/static/js/runtime-main.ce073186.js.map",
-    "static/js/2.cacc014e.chunk.js": "/youtube2020/static/js/2.cacc014e.chunk.js",
-    "static/js/2.cacc014e.chunk.js.map": "/youtube2020/static/js/2.cacc014e.chunk.js.map",
+    "static/js/2.2b751848.chunk.js": "/youtube2020/static/js/2.2b751848.chunk.js",
+    "static/js/2.2b751848.chunk.js.map": "/youtube2020/static/js/2.2b751848.chunk.js.map",
     "index.html": "/youtube2020/index.html",
     "static/css/main.0888ce2d.chunk.css.map": "/youtube2020/static/css/main.0888ce2d.chunk.css.map",
-    "static/js/2.cacc014e.chunk.js.LICENSE.txt": "/youtube2020/static/js/2.cacc014e.chunk.js.LICENSE.txt"
+    "static/js/2.2b751848.chunk.js.LICENSE.txt": "/youtube2020/static/js/2.2b751848.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ce073186.js",
-    "static/js/2.cacc014e.chunk.js",
+    "static/js/2.2b751848.chunk.js",
     "static/css/main.0888ce2d.chunk.css",
-    "static/js/main.4b5cbd65.chunk.js"
+    "static/js/main.e7bad031.chunk.js"
   ]
 }
