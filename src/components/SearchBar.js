@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Grid, FormControl, OutlinedInput, Button } from "@material-ui/core/"
+import React, { useState, useEffect } from "react"
+import { Grid, OutlinedInput, Button } from "@material-ui/core/"
 import { makeStyles } from "@material-ui/styles";
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -25,9 +25,16 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+
+
 function SearchBar({ setSrc }) {
     const classes = useStyles();
     const [searchInput, setSearchInput] = useState('')
+
+    useEffect( () => {
+        fetchSearchApi('')
+        // eslint-disable-next-line
+    }, [])
 
     const onChangeSearchInput = (e) => {
         setSearchInput(e.target.value)
